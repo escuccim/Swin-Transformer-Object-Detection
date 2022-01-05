@@ -526,8 +526,8 @@ classes =  ['bread-wholemeal',
            'cherries',
            'nectarine']
 data = dict(
-    samples_per_gpu=2,
-    workers_per_gpu=2,
+    samples_per_gpu=1,
+    workers_per_gpu=1,
     train=dict(
         type=dataset_type,
         ann_file=data_root + 'train/annotations.json',
