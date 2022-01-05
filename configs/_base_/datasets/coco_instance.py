@@ -27,7 +27,7 @@ test_pipeline = [
             dict(type='Collect', keys=['img']),
         ])
 ]
-classes =  = ['bread-wholemeal',
+classes =  ['bread-wholemeal',
            'jam',
            'water',
            'bread-sourdough',
