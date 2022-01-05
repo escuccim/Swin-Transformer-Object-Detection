@@ -879,7 +879,7 @@ albu_train_transforms = [
 #     dict(type='DefaultFormatBundle'),
 #     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks']),
 # ]
-data = dict(train=dict(pipeline=train_pipeline))
+# data = dict(train=dict(pipeline=train_pipeline))
 
 optimizer = dict(_delete_=True, type='AdamW', lr=0.0001, betas=(0.9, 0.999), weight_decay=0.05,
                  paramwise_cfg=dict(custom_keys={'absolute_pos_embed': dict(decay_mult=0.),
