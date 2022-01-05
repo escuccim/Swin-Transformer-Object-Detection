@@ -81,10 +81,6 @@ img_norm_cfg = dict(
 
 albu_train_transforms = [
     dict(
-        type="BboxParams",
-        format='pascal_voc')
-    ),
-    dict(
         type="OneOf",
         transforms=[
 #             dict(
