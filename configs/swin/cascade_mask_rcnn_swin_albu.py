@@ -824,9 +824,9 @@ albu_train_transforms = [
         type="HorizontalFlip",
         p=0.5
     ),
-    dict(
-        type='VerticalFlip', p=0.25),
-    dict(type='RandomRotate90', p=0.3),
+#     dict(
+#         type='VerticalFlip', p=0.25),
+#     dict(type='RandomRotate90', p=0.3),
     dict(type='Cutout', p=0.4),
     dict(
         type='OneOf',
@@ -834,7 +834,7 @@ albu_train_transforms = [
             dict(type='Blur', blur_limit=5, p=1.0),
             dict(type='MedianBlur', blur_limit=5, p=1.0),
             dict(type='GaussNoise', var_limit=25, p=1.0),
-            dict(type='JpegCompression', quality_lower=80, quality_upper=95, p=1.0),
+            dict(type='ImageCompression', quality_lower=80, quality_upper=95, p=1.0),
         ],
         p=0.3),
 
