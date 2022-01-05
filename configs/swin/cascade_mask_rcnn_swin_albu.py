@@ -842,43 +842,43 @@ albu_train_transforms = [
 
 
 # augmentation strategy originates from DETR / Sparse RCNN
-train_pipeline = [
-    dict(type='LoadImageFromFile'),
-    dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
-    dict(type='RandomFlip', flip_ratio=0.5),
-    dict(type='AutoAugment',
-         policies=[
-             [
-                 dict(type='Resize',
-                      img_scale=[(480, 960), (512, 960), (544, 960), (576, 960),
-                                 (608, 960), (640, 960), (672, 960), (704, 960),
-                                 (736, 960), (768, 960), (800, 960)],
-                      multiscale_mode='value',
-                      keep_ratio=True)
-             ],
-             [
-                 dict(type='Resize',
-                      img_scale=[(400, 1333), (500, 1333), (600, 1333)],
-                      multiscale_mode='value',
-                      keep_ratio=True),
-                 dict(type='RandomCrop',
-                      crop_type='absolute_range',
-                      crop_size=(384, 600),
-                      allow_negative_crop=True),
-                 dict(type='Resize',
-                      img_scale=[(480, 960), (512, 960), (544, 960), (576, 960),
-                                 (608, 960), (640, 960), (672, 960), (704, 960),
-                                 (736, 960), (768, 960), (800, 960)],
-                      multiscale_mode='value',
-                      override=True,
-                      keep_ratio=True)
-             ]
-         ]),
-    dict(type='Normalize', **img_norm_cfg),
-    dict(type='Pad', size_divisor=32),
-    dict(type='DefaultFormatBundle'),
-    dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks']),
-]
+# train_pipeline = [
+#     dict(type='LoadImageFromFile'),
+#     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
+#     dict(type='RandomFlip', flip_ratio=0.5),
+#     dict(type='AutoAugment',
+#          policies=[
+#              [
+#                  dict(type='Resize',
+#                       img_scale=[(480, 960), (512, 960), (544, 960), (576, 960),
+#                                  (608, 960), (640, 960), (672, 960), (704, 960),
+#                                  (736, 960), (768, 960), (800, 960)],
+#                       multiscale_mode='value',
+#                       keep_ratio=True)
+#              ],
+#              [
+#                  dict(type='Resize',
+#                       img_scale=[(400, 1333), (500, 1333), (600, 1333)],
+#                       multiscale_mode='value',
+#                       keep_ratio=True),
+#                  dict(type='RandomCrop',
+#                       crop_type='absolute_range',
+#                       crop_size=(384, 600),
+#                       allow_negative_crop=True),
+#                  dict(type='Resize',
+#                       img_scale=[(480, 960), (512, 960), (544, 960), (576, 960),
+#                                  (608, 960), (640, 960), (672, 960), (704, 960),
+#                                  (736, 960), (768, 960), (800, 960)],
+#                       multiscale_mode='value',
+#                       override=True,
+#                       keep_ratio=True)
+#              ]
+#          ]),
+#     dict(type='Normalize', **img_norm_cfg),
+#     dict(type='Pad', size_divisor=32),
+#     dict(type='DefaultFormatBundle'),
+#     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels', 'gt_masks']),
+# ]
 data = dict(train=dict(pipeline=train_pipeline))
 
 optimizer = dict(_delete_=True, type='AdamW', lr=0.0001, betas=(0.9, 0.999), weight_decay=0.05,
@@ -922,6 +922,7 @@ train_pipeline = [
         },
         update_pad_shape=False,
         skip_img_without_anno=True),
+    dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
     dict(type='DefaultFormatBundle'),
