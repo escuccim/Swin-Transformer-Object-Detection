@@ -827,7 +827,7 @@ albu_train_transforms = [
 #     dict(
 #         type='VerticalFlip', p=0.25),
 #     dict(type='RandomRotate90', p=0.3),
-    dict(type='Cutout', p=0.4),
+    dict(type='CoarseDropout', p=0.4),
     dict(
         type='OneOf',
         transforms=[
