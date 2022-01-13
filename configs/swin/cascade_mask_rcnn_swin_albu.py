@@ -786,7 +786,8 @@ albu_train_transforms = [
         type='ShiftScaleRotate',
         shift_limit=0.0725,
         scale_limit=0.125,
-        rotate_limit=30,
+        # not rotating because of bbox issues
+        rotate_limit=0,
         interpolation=2,
         p=0.4),
 
