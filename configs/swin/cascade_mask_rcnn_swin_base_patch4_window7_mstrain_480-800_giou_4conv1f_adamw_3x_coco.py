@@ -97,7 +97,7 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
-                      img_scale=[(400, 1333), (500, 1333), (600, 1333)],
+                      img_scale=[(400, 960), (500, 960), (600, 960)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(type='RandomCrop',
