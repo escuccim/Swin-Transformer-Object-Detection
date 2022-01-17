@@ -86,70 +86,7 @@ train_pipeline = [
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='AutoAugment',
-         policies=[
-             policies=[
-             [
-                 dict(
-                    type='ContrastTransform',
-                     prob=0.3,
-                     level=3
-                 ),
-                 dict(
-                    type='BrightnessTransform',
-                     prob=0.3,
-                     level=3
-                 ),
-                 dict(
-                     type='Shear',
-                     prob=0.4,
-                     level=1),
-#                  dict(type='Sharpness', prob=0.1, level=6),
-                 dict(
-                    type='Rotate',
-                    prob=0.6,
-                    level=6),
-                 dict(type='Resize',
-                      img_scale=[(480, 928), (512, 928), (544, 928), (576, 928),
-                                 (608, 928), (640, 928), (672, 928), (704, 928),
-                                 (736, 928), (768, 928), (800, 928)],
-                      multiscale_mode='value',
-                      keep_ratio=True)
-             ],
-             [
-                 dict(
-                    type='ContrastTransform',
-                     prob=0.3,
-                     level=3
-                 ),
-                 dict(
-                    type='BrightnessTransform',
-                     prob=0.3,
-                     level=3
-                 ),
-#                  dict(type='Sharpness', prob=0.1, level=3),
-                 dict(
-                    type='Rotate',
-                    prob=0.6,
-                    level=5),
-                 dict(type='Resize',
-                      img_scale=[(400, 1333), (500, 1333), (600, 1333)],
-                      multiscale_mode='value',
-                      keep_ratio=True),
-                 dict(type='RandomCrop',
-                      crop_type='absolute_range',
-                      crop_size=(384, 600),
-                      allow_negative_crop=True),
-                 dict(type='Resize',
-                      img_scale=[(480, 928), (512, 928), (544, 928),
-                                 (576, 928), (608, 928), (640, 928),
-                                 (672, 928), (704, 928), (736, 928),
-                                 (768, 928), (800, 928)],
-                      multiscale_mode='value',
-                      override=True,
-                      keep_ratio=True)
-             ]
-         ]
-         ]),
+         800),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
     dict(type='DefaultFormatBundle'),
