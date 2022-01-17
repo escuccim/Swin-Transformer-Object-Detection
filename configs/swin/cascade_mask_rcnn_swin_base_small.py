@@ -87,6 +87,7 @@ train_pipeline = [
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='AutoAugment',
          policies=[
+             [
                  dict(type='Resize',
                       img_scale=[(480, 800), (512, 800), (544, 800), (576, 800),
                                  (608, 800), (640, 800), (672, 800), (704, 800),
