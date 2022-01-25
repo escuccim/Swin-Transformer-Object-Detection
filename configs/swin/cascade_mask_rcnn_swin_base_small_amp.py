@@ -241,7 +241,7 @@ test_pipeline = [
         ])
 ]
 
-data = dict(train=dict(pipeline=train_pipeline)
+data = dict(train=dict(pipeline=train_pipeline),
            val=dict(pipeline=test_pipeline),
            test=dict(pipeline=test_pipeline))
 evaluation = dict(interval=2, metric=['bbox', 'segm'])
