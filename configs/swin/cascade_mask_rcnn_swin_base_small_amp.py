@@ -225,7 +225,7 @@ test_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(
         type='MultiScaleFlipAug',
-        img_scale=[(640, 640), (864, 864)],
+        img_scale=[(480, 480), (640, 640), (864, 864)],
         flip=False,
         transforms=[
             dict(type='Resize', keep_ratio=True),
@@ -242,7 +242,7 @@ test_pipeline = [
 ]
 
 data = dict(train=dict(pipeline=train_pipeline),
-           val=dict(pipeline=test_pipeline),
+#            val=dict(pipeline=test_pipeline),
            test=dict(pipeline=test_pipeline))
 evaluation = dict(interval=2, metric=['bbox', 'segm'])
 optimizer = dict(_delete_=True, type='AdamW', lr=0.0001, betas=(0.9, 0.999), weight_decay=0.05,
