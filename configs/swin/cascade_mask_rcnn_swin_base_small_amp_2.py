@@ -89,9 +89,8 @@ train_pipeline = [
          policies=[
              [
                  dict(type='Resize',
-                      img_scale=[(480, 800), (512, 800), (544, 800), (576, 800),
-                                 (608, 800), (640, 800), (672, 800), (704, 800),
-                                 (736, 800), (768, 800), (800, 800)],
+                      img_scale=[(480, 640), (512, 640), (544, 640), (576, 640),
+                                 (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -112,9 +111,30 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
-                      img_scale=[(480, 800), (512, 800), (544, 800), (576, 800),
-                                 (608, 800), (640, 800), (672, 800), (704, 800),
-                                 (736, 800), (768, 800), (800, 800)],
+                      img_scale=[(480, 640), (512, 640), (544, 640), (576, 640),
+                                 (608, 640), (640, 640)],
+                      multiscale_mode='value',
+                      keep_ratio=True),
+                 dict(
+                     type='Shear',
+                     prob=0.4,
+                     level=5),
+                 dict(
+                     type='Translate',
+                     prob=0.3,
+                     level=5),
+                 dict(
+                    type='Rotate',
+                    prob=0.6,
+                    level=8),
+                 dict(
+                    type='EqualizeTransform',
+                    prob=0.5),
+             ],
+             [
+                 dict(type='Resize',
+                      img_scale=[(480, 640), (512, 640), (544, 640), (576, 640),
+                                 (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -127,9 +147,22 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
-                      img_scale=[(480, 800), (512, 800), (544, 800), (576, 800),
-                                 (608, 800), (640, 800), (672, 800), (704, 800),
-                                 (736, 800), (768, 800), (800, 800)],
+                      img_scale=[(480, 640), (512, 640), (544, 640), (576, 640),
+                                 (608, 640), (640, 640)],
+                      multiscale_mode='value',
+                      keep_ratio=True),
+                 dict(
+                    type='Rotate',
+                    prob=0.5,
+                    level=10),
+                 dict(
+                    type='EqualizeTransform',
+                    prob=0.3),
+             ],
+             [
+                 dict(type='Resize',
+                      img_scale=[(480, 640), (512, 640), (544, 640), (576, 640),
+                                 (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -160,6 +193,38 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
+                      img_scale=[(480, 640), (512, 640), (544, 640), (576, 640),
+                                 (608, 640), (640, 640)],
+                      multiscale_mode='value',
+                      keep_ratio=True),
+                 dict(
+                    type='ContrastTransform',
+                     prob=0.3,
+                     level=3
+                 ),
+                 dict(
+                    type='BrightnessTransform',
+                     prob=0.3,
+                     level=3
+                 ),
+                 dict(
+                     type='Shear',
+                     prob=0.4,
+                     level=4),
+                 dict(
+                     type='Translate',
+                     prob=0.2,
+                     level=7),
+                 dict(
+                    type='Rotate',
+                    prob=0.6,
+                    level=10),
+                 dict(
+                    type='EqualizeTransform',
+                    prob=0.2),
+             ],
+             [
+                 dict(type='Resize',
                       img_scale=[(400, 1333), (500, 1333), (600, 1333)],
                       multiscale_mode='value',
                       keep_ratio=True),
@@ -168,10 +233,8 @@ train_pipeline = [
                       crop_size=(384, 600),
                       allow_negative_crop=True),
                  dict(type='Resize',
-                      img_scale=[(480, 800), (512, 800), (544, 800),
-                                 (576, 800), (608, 800), (640, 800),
-                                 (672, 800), (704, 800), (736, 800),
-                                 (768, 800), (800, 800)],
+                      img_scale=[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       override=True,
                       keep_ratio=True)
@@ -186,10 +249,8 @@ train_pipeline = [
                       crop_size=(384, 600),
                       allow_negative_crop=True),
                  dict(type='Resize',
-                      img_scale=[(480, 800), (512, 800), (544, 800),
-                                 (576, 800), (608, 800), (640, 800),
-                                 (672, 800), (704, 800), (736, 800),
-                                 (768, 800), (800, 800)],
+                      img_scale=[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       override=True,
                       keep_ratio=True),
@@ -211,6 +272,43 @@ train_pipeline = [
                     type='Rotate',
                     prob=0.6,
                     level=5),
+                 dict(
+                    type='EqualizeTransform',
+                    prob=0.4),
+             ],
+             [
+                 dict(type='Resize',
+                      img_scale=[(400, 1333), (500, 1333), (600, 1333)],
+                      multiscale_mode='value',
+                      keep_ratio=True),
+                 dict(type='RandomCrop',
+                      crop_type='absolute_range',
+                      crop_size=(384, 600),
+                      allow_negative_crop=True),
+                 dict(type='Resize',
+                      img_scale=[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
+                      multiscale_mode='value',
+                      override=True,
+                      keep_ratio=True),
+                 dict(
+                    type='ContrastTransform',
+                     prob=0.3,
+                     level=6
+                 ),
+                 dict(
+                    type='BrightnessTransform',
+                     prob=0.3,
+                     level=5
+                 ),
+                 dict(
+                     type='Shear',
+                     prob=0.4,
+                     level=3),
+                 dict(
+                    type='Rotate',
+                    prob=0.6,
+                    level=7),
                  dict(
                     type='EqualizeTransform',
                     prob=0.4),
