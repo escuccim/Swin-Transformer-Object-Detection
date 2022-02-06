@@ -90,7 +90,7 @@ train_pipeline = [
              [
                  dict(type='Resize',
                       img_scale=[(480, 640), (512, 640), (544, 640),
-                                 (576, 640), (608, 640), (640, 640],
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -111,8 +111,8 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
-                      img_scale=[(480, 640), (512, 640), (544, 640),
-                                 (576, 640), (608, 640), (640, 640],
+                      img_scale==[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -133,8 +133,8 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
-                      img_scale=[(480, 640), (512, 640), (544, 640),
-                                 (576, 640), (608, 640), (640, 640],
+                      img_scale==[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -147,8 +147,8 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
-                      img_scale=[(480, 640), (512, 640), (544, 640),
-                                 (576, 640), (608, 640), (640, 640],
+                      img_scale==[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -161,8 +161,8 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
-                      img_scale=[(480, 640), (512, 640), (544, 640),
-                                 (576, 640), (608, 640), (640, 640],
+                      img_scale==[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -193,8 +193,8 @@ train_pipeline = [
              ],
              [
                  dict(type='Resize',
-                      img_scale=[(480, 640), (512, 640), (544, 640),
-                                 (576, 640), (608, 640), (640, 640],
+                      img_scale==[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       keep_ratio=True),
                  dict(
@@ -233,8 +233,8 @@ train_pipeline = [
                       crop_size=(384, 600),
                       allow_negative_crop=True),
                  dict(type='Resize',
-                      img_scale=[(480, 640), (512, 640), (544, 640),
-                                 (576, 640), (608, 640), (640, 640],
+                      img_scale==[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       override=True,
                       keep_ratio=True)
@@ -249,8 +249,8 @@ train_pipeline = [
                       crop_size=(384, 600),
                       allow_negative_crop=True),
                  dict(type='Resize',
-                      img_scale=[(480, 640), (512, 640), (544, 640),
-                                 (576, 640), (608, 640), (640, 640],
+                      img_scale==[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640)],
                       multiscale_mode='value',
                       override=True,
                       keep_ratio=True),
