@@ -90,7 +90,7 @@ train_pipeline = [
              [
                  dict(type='Resize',
                       img_scale=[(480, 1024), (512, 1024), (544, 1024), (576, 1024),
-                                 (608, 1024)],
+                                 (608, 1024), (640, 1024)],
                       multiscale_mode='value',
                       keep_ratio=True)
              ],
@@ -105,7 +105,7 @@ train_pipeline = [
                       allow_negative_crop=True),
                  dict(type='Resize',
                       img_scale=[(480, 1024), (512, 1024), (544, 1024),
-                                 (576, 1024), (608, 1024)],
+                                 (576, 1024), (608, 1024), (640, 1024)],
                       multiscale_mode='value',
                       override=True,
                       keep_ratio=True)
